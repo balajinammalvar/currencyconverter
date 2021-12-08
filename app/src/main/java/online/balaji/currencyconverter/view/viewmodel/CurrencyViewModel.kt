@@ -17,7 +17,7 @@ class CurrencyViewModel : ViewModel(), CoroutineScope {
     fun getCountryCode() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            val data = CurrencyRepo.getCountryCode()
+            val data = CurrencyRepo().getCountryCode()
             emit(Resource.success(data = data))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
@@ -27,7 +27,7 @@ class CurrencyViewModel : ViewModel(), CoroutineScope {
     fun getConvertedCurrency(from: String, to: String, amount: String) = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            val data = CurrencyRepo.getConvertedCurrency(from, to, amount)
+            val data = CurrencyRepo().getConvertedCurrency(from, to, amount)
             emit(Resource.success(data = data))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))

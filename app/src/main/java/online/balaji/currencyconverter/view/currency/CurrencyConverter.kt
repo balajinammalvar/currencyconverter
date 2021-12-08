@@ -67,7 +67,7 @@ class CurrencyConverter : AppCompatActivity(), View.OnClickListener {
                     mProgressBar?.visibility = View.GONE
                     /*for user experience concat the strings for display */
                     var convertedCurrency =
-                        "${activityCurrencyConverterBinding?.etCurrency?.text}${" "}${it.data?.from}${"="}${" "}${it.data?.amount?.toString()!!}${" "}${it.data.to}"
+                        "${activityCurrencyConverterBinding?.etCurrency?.text}${" "}${it.data?.from}${" "}${"="}${" "}${it.data?.amount?.toString()!!}${" "}${it.data.to}"
                     activityCurrencyConverterBinding?.tvConver?.text = convertedCurrency
                 }
             }
@@ -97,13 +97,14 @@ class CurrencyConverter : AppCompatActivity(), View.OnClickListener {
             TextUtils.isValidString(activityCurrencyConverterBinding?.tvTo?.text.toString()) &&
             TextUtils.isValidString(activityCurrencyConverterBinding?.etCurrency?.text.toString())
         ) {
-            getCurrency(
-                activityCurrencyConverterBinding?.tvFrom?.text.toString(),
-                activityCurrencyConverterBinding?.tvTo?.text.toString(),
-                activityCurrencyConverterBinding?.etCurrency?.text.toString()
-            )
-        } else if (activityCurrencyConverterBinding?.tvFrom?.text.toString() == activityCurrencyConverterBinding?.tvTo?.text.toString()) {
-            TextUtils.toast(this, getString(R.string.toast_cannot_same))
+            if (activityCurrencyConverterBinding?.tvFrom?.text.toString() === activityCurrencyConverterBinding?.tvTo?.text.toString()) {
+                TextUtils.toast(this, getString(R.string.toast_cannot_same))
+            } else
+                getCurrency(
+                    activityCurrencyConverterBinding?.tvFrom?.text.toString(),
+                    activityCurrencyConverterBinding?.tvTo?.text.toString(),
+                    activityCurrencyConverterBinding?.etCurrency?.text.toString()
+                )
         } else TextUtils.toast(this, getString(R.string.toast_valid))
     }
 

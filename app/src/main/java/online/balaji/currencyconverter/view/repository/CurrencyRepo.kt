@@ -5,10 +5,8 @@ import online.balaji.currencyconverter.view.model.ConverterResponse
 
 class CurrencyRepo {
 
-    companion object {
         suspend fun getCountryCode(): List<String>? {
             val response = RetroClient.apiService.getCountryCode()
-
             return response
         }
 
@@ -18,8 +16,6 @@ class CurrencyRepo {
             amount: String
         ): ConverterResponse? {
             val response = RetroClient.apiService.getConvertedCurrency(from, to, amount)
-
             return response
         }
-    }
 }

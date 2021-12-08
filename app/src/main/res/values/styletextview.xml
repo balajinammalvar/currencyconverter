@@ -16,12 +16,12 @@
     </style>
 
     <style name="MyApp.TexView.Label.Primary" parent="MyApp.TextView.Bold">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">18sp</item>
     </style>
 
     <style name="MyApp.TexView.Label.Primary.Normal" parent="MyApp.TextViews.Normal">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">18sp</item>
         <item name="android:layout_marginTop">5dp</item>
     </style>
