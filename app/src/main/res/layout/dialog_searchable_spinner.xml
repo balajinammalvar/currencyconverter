@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/MyApp.TexView.Label.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/txt_select_country"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_edittext_primary"
+        android:hint="@string/hint_search"
+        android:inputType="text"
+        android:padding="5dp" />
+
+    <ListView
+        android:id="@+id/lvCountryCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etSearch" />
+
+
+</RelativeLayout>

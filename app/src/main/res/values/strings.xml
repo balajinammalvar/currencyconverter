@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Currency Converter</string>
+
+    <!--button-->
+    <string name="btn_submit">Submit</string>
+
+    <!--text-->
+    <string name="txt_select_country">Select Country</string>
+    <string name="txt_conversation">0.13 USD</string>
+    <!--hint-->
+    <string name="hint_from">From</string>
+    <string name="hint_to">To</string>
+    <string name="hint_currency">Currency</string>
+    <string name="hint_search">Search......</string>
+    <!--toast-->
+    <string name="toast_valid">Kindly check all the fields</string>
+    <string name="toast_internet">Kindly check your internet connection</string>
+    <string name="toast_cannot_same">From &amp; To country cannot be same</string>
+
+
+</resources>
