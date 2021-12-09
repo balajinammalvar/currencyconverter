@@ -18,13 +18,9 @@
         android:id="@+id/etSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/MyApp.EdiText.Base.Text.Secondary"
         android:layout_below="@+id/tvTitle"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:background="@drawable/bg_edittext_primary"
-        android:hint="@string/hint_search"
-        android:inputType="text"
-        android:padding="5dp" />
+        android:hint="@string/hint_search" />
 
     <ListView
         android:id="@+id/lvCountryCode"

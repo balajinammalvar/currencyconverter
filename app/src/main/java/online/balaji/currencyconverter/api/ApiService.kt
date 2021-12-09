@@ -1,6 +1,6 @@
 package com.emperor.kotlinexample.api
 
-import online.balaji.currencyconverter.view.model.ConverterResponse
+import online.balaji.currencyconverter.model.ConverterResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

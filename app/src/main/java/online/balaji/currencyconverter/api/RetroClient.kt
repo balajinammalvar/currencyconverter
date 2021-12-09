@@ -3,7 +3,6 @@ package com.emperor.kotlinexample.api
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import online.balaji.currencyconverter.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -11,7 +10,6 @@ import java.util.concurrent.TimeUnit
 
 object RetroClient {
     private const val BASE_URL = "https://currency-converter13.p.rapidapi.com/"
-    private const val BASE = BuildConfig.VERSION_CODE
     private fun getRetrofit(): Retrofit {
         /*http client setup with headers and timeout*/
         val builder: OkHttpClient.Builder = OkHttpClient().newBuilder()

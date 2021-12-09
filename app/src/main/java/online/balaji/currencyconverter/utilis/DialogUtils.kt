@@ -1,4 +1,4 @@
-package online.balaji.currencyconverter.view.utilis
+package online.balaji.currencyconverter.utilis
 
 import android.R
 import android.content.Context

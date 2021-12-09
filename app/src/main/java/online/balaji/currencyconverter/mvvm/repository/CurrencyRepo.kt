@@ -1,7 +1,7 @@
 package online.interview.flendzz.repository
 
 import com.emperor.kotlinexample.api.RetroClient
-import online.balaji.currencyconverter.view.model.ConverterResponse
+import online.balaji.currencyconverter.model.ConverterResponse
 
 class CurrencyRepo {
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyApp.EdiText.Base.Text.Primary" parent="android:style/Widget.EditText">
+        <item name="android:background">@drawable/bg_edittext_primary</item>
+        <item name="android:textColorHint">@color/primary_lite</item>
+        <item name="android:textColor">@color/primary_dark</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:inputType">numberDecimal</item>
+    </style>
+
+    <style name="MyApp.EdiText.Base.Text.Secondary" parent="MyApp.EdiText.Base.Text.Primary">
+       <item name="android:inputType">text</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">20dp</item>
+    </style>
+
+
+    android:layout_below="@+id/tvTitle"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_edittext_primary"
+    android:hint="@string/hint_search"
+    android:inputType="text"
+    android:padding="5dp"
+</resources>

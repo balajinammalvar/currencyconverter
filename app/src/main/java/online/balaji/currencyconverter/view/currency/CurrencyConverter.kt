@@ -4,48 +4,51 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import online.balaji.currencyconverter.R
 import online.balaji.currencyconverter.databinding.ActivityCurrencyConverterBinding
-import online.balaji.currencyconverter.view.utilis.DialogUtils
-import online.balaji.currencyconverter.view.utilis.TextUtils
-import online.balaji.currencyconverter.view.viewmodel.CurrencyViewModel
+import online.balaji.currencyconverter.mvvm.viewmodel.CurrencyViewModel
+import online.balaji.currencyconverter.utilis.DialogUtils
+import online.balaji.currencyconverter.utilis.TextUtils
 import online.interview.flendzz.utilis.InternetCheck
 import online.interview.flendzz.utilis.Status
 
 class CurrencyConverter : AppCompatActivity(), View.OnClickListener {
 
-    var activityCurrencyConverterBinding: ActivityCurrencyConverterBinding? = null
+    private lateinit var activityCurrencyConverterBinding: ActivityCurrencyConverterBinding
     private lateinit var currencyViewModel: CurrencyViewModel
-    private var mCountryCode: List<String>? = null
-    var mProgressBar: ProgressBar? = null
+    private lateinit var mCountryCode: List<String>
+    private lateinit var mProgressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityCurrencyConverterBinding = ActivityCurrencyConverterBinding.inflate(layoutInflater)
-        setContentView(activityCurrencyConverterBinding!!.root)
+        setContentView(activityCurrencyConverterBinding.root)
 
         currencyViewModel = ViewModelProvider(this).get(CurrencyViewModel::class.java)
-        mProgressBar = activityCurrencyConverterBinding?.progressBar
-        activityCurrencyConverterBinding!!.tvFrom.setOnClickListener(this)
-        activityCurrencyConverterBinding!!.tvTo.setOnClickListener(this)
-        activityCurrencyConverterBinding!!.btnSubmit.setOnClickListener(this)
+        mProgressBar = activityCurrencyConverterBinding.progressBar
+        onClickListener()
+    }
+
+    private fun onClickListener() {
+        activityCurrencyConverterBinding.tvFrom.setOnClickListener(this)
+        activityCurrencyConverterBinding.tvTo.setOnClickListener(this)
+        activityCurrencyConverterBinding.btnSubmit.setOnClickListener(this)
     }
 
     /*API getting currency country code*/
     private fun getCountryCode() {
-        currencyViewModel.getCountryCode().observe(this, Observer {
+        currencyViewModel.getCountryCode().observe(this, {
             when (it.status) {
                 Status.LOADING -> {
-                    mProgressBar?.visibility = View.VISIBLE
+                    mProgressBar.visibility = View.VISIBLE
                 }
                 Status.ERROR -> {
-                    mProgressBar?.visibility = View.GONE
+                    mProgressBar.visibility = View.GONE
                     TextUtils.toast(this, it.message!!)
                 }
                 Status.SUCCESS -> {
-                    mProgressBar?.visibility = View.GONE
+                    mProgressBar.visibility = View.GONE
                     mCountryCode = ArrayList<String>(it.data)
                 }
             }
@@ -54,21 +57,21 @@ class CurrencyConverter : AppCompatActivity(), View.OnClickListener {
 
     /*API getting converted currency value*/
     private fun getCurrency(from: String, to: String, currency: String) {
-        currencyViewModel.getConvertedCurrency(from, to, currency)?.observe(this, Observer {
+        currencyViewModel.getConvertedCurrency(from, to, currency).observe(this, {
             when (it.status) {
                 Status.LOADING -> {
-                    mProgressBar?.visibility = View.VISIBLE
+                    mProgressBar.visibility = View.VISIBLE
                 }
                 Status.ERROR -> {
-                    mProgressBar?.visibility = View.GONE
+                    mProgressBar.visibility = View.GONE
                     TextUtils.toast(this, it.message!!)
                 }
                 Status.SUCCESS -> {
-                    mProgressBar?.visibility = View.GONE
+                    mProgressBar.visibility = View.GONE
                     /*for user experience concat the strings for display */
-                    var convertedCurrency =
-                        "${activityCurrencyConverterBinding?.etCurrency?.text}${" "}${it.data?.from}${" "}${"="}${" "}${it.data?.amount?.toString()!!}${" "}${it.data.to}"
-                    activityCurrencyConverterBinding?.tvConver?.text = convertedCurrency
+                    val convertedCurrency =
+                        "${activityCurrencyConverterBinding.etCurrency.text} ${it.data?.from} = ${it.data?.amount.toString()} ${ it.data?.to}"
+                    activityCurrencyConverterBinding.tvConver.text = convertedCurrency
                 }
             }
         })
@@ -80,12 +83,12 @@ class CurrencyConverter : AppCompatActivity(), View.OnClickListener {
             R.id.tvFrom -> DialogUtils.selectCountry(
                 this,
                 mCountryCode,
-                activityCurrencyConverterBinding!!.tvFrom
+                activityCurrencyConverterBinding.tvFrom
             )
             R.id.tvTo -> DialogUtils.selectCountry(
                 this,
                 mCountryCode,
-                activityCurrencyConverterBinding!!.tvTo
+                activityCurrencyConverterBinding.tvTo
             )
             R.id.btnSubmit -> validateCurrency()
         }
@@ -93,17 +96,17 @@ class CurrencyConverter : AppCompatActivity(), View.OnClickListener {
 
     /*validate input fields*/
     private fun validateCurrency() {
-        if (TextUtils.isValidString(activityCurrencyConverterBinding?.tvFrom?.text.toString()) &&
-            TextUtils.isValidString(activityCurrencyConverterBinding?.tvTo?.text.toString()) &&
-            TextUtils.isValidString(activityCurrencyConverterBinding?.etCurrency?.text.toString())
+        if (TextUtils.isValidString(activityCurrencyConverterBinding.tvFrom.text.toString()) &&
+            TextUtils.isValidString(activityCurrencyConverterBinding.tvTo.text.toString()) &&
+            TextUtils.isValidString(activityCurrencyConverterBinding.etCurrency.text.toString())
         ) {
-            if (activityCurrencyConverterBinding?.tvFrom?.text.toString() === activityCurrencyConverterBinding?.tvTo?.text.toString()) {
+            if (activityCurrencyConverterBinding.tvFrom.text.toString() === activityCurrencyConverterBinding.tvTo.text.toString()) {
                 TextUtils.toast(this, getString(R.string.toast_cannot_same))
             } else
                 getCurrency(
-                    activityCurrencyConverterBinding?.tvFrom?.text.toString(),
-                    activityCurrencyConverterBinding?.tvTo?.text.toString(),
-                    activityCurrencyConverterBinding?.etCurrency?.text.toString()
+                    activityCurrencyConverterBinding.tvFrom.text.toString(),
+                    activityCurrencyConverterBinding.tvTo.text.toString(),
+                    activityCurrencyConverterBinding.etCurrency.text.toString()
                 )
         } else TextUtils.toast(this, getString(R.string.toast_valid))
     }
@@ -115,4 +118,5 @@ class CurrencyConverter : AppCompatActivity(), View.OnClickListener {
             getCountryCode()
         } else TextUtils.toast(this, getString(R.string.toast_internet))
     }
+
 }
