@@ -13,6 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CurrencyConverter">
         <activity
+            android:name=".view.constraintlayout.ConstraintLayout"
+            android:exported="false" />
+        <activity
+            android:name=".view.scopfunction.ScopeFunctionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.flow.FlowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.movies.MoviesList"
+            android:exported="false" />
+        <activity
             android:name="online.balaji.currencyconverter.view.splash.view.home.CurrencyConverter"
             android:exported="true" />
         <activity
@@ -20,6 +32,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

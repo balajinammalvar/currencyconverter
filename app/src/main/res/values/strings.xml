@@ -3,6 +3,8 @@
 
     <!--button-->
     <string name="btn_submit">Submit</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_flow">Flow</string>
 
     <!--text-->
     <string name="txt_select_country">Select Country</string>
@@ -17,5 +19,9 @@
     <string name="toast_internet">Kindly check your internet connection</string>
     <string name="toast_cannot_same">From &amp; To country cannot be same</string>
 
+    <array name="spinner">
+        Balaji
+        Sachin
+    </array>
 
 </resources>

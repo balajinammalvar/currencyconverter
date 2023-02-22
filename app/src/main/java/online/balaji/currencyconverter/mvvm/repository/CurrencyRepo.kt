@@ -2,6 +2,7 @@ package online.interview.flendzz.repository
 
 import com.emperor.kotlinexample.api.RetroClient
 import online.balaji.currencyconverter.model.ConverterResponse
+import online.balaji.currencyconverter.model.Movies
 
 class CurrencyRepo {
 
@@ -18,4 +19,9 @@ class CurrencyRepo {
             val response = RetroClient.apiService.getConvertedCurrency(from, to, amount)
             return response
         }
+
+    suspend fun getMoviesList(): List<Movies>{
+        val response=RetroClient.apiServiceMovies.getMovies()
+        return response
+    }
 }
