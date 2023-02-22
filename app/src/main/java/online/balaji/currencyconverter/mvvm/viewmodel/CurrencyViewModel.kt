@@ -27,4 +27,6 @@ class CurrencyViewModel : ViewModel() {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }
     }
+
+
 }

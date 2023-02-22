@@ -3,6 +3,8 @@
 
     <!--button-->
     <string name="btn_submit">Submit</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_flow">Flow</string>
 
     <!--text-->
     <string name="txt_select_country">Select Country</string>
