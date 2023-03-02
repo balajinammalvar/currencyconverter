@@ -13,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CurrencyConverter">
         <activity
-            android:name=".view.constraintlayout.ConstraintLayout"
-            android:exported="false" />
-        <activity
             android:name=".view.scopfunction.ScopeFunctionActivity"
             android:exported="false" />
         <activity

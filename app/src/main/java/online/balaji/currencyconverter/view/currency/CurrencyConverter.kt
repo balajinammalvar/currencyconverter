@@ -12,11 +12,10 @@ import online.balaji.currencyconverter.model.Movies
 import online.balaji.currencyconverter.mvvm.viewmodel.CurrencyViewModel
 import online.balaji.currencyconverter.utilis.DialogUtils
 import online.balaji.currencyconverter.utilis.TextUtils
-import online.balaji.currencyconverter.view.constraintlayout.ConstraintLayout
 import online.balaji.currencyconverter.view.movies.MoviesList
+import online.balaji.currencyconverter.view.scopfunction.ScopeFunctionActivity
 import online.interview.flendzz.utilis.InternetCheck
 import online.interview.flendzz.utilis.Status
-
 
 class CurrencyConverter : AppCompatActivity(), View.OnClickListener {
 
@@ -35,8 +34,6 @@ class CurrencyConverter : AppCompatActivity(), View.OnClickListener {
         mProgressBar = activityCurrencyConverterBinding.progressBar
         onClickListener()
     }
-
-
 
     private fun onClickListener() {
         activityCurrencyConverterBinding.tvFrom.setOnClickListener(this)
@@ -114,7 +111,7 @@ class CurrencyConverter : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getFlow() {
-        val flowIntent = Intent(applicationContext, ConstraintLayout::class.java)
+        val flowIntent = Intent(applicationContext, ScopeFunctionActivity::class.java)
         startActivity(flowIntent)
     }
 

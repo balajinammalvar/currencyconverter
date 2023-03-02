@@ -61,10 +61,10 @@ class ScopeFunctionActivity : AppCompatActivity() {
         var with =with(Intent()){
             0
         }
+
     }
 
     fun getNumber()=(i*1).also {
-        it+1
-
+        it+10
     }
 }
