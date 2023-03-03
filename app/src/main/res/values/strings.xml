@@ -23,5 +23,14 @@
         Balaji
         Sachin
     </array>
+    
+    <string name="txt_print_from_email">Print From Email</string>
+    <string name="txt_dollar">$0.00</string>
+    <string name="txt_check_out">Check Out</string>
+    <string name="txt_claim">Claim #443-S.Wojo.pdf</string>
+    
+    <string name="txt_reset">Reset</string>
+    <string name="txt_preview">Preview</string>
+    <string name="txt_print">Print</string>
 
 </resources>

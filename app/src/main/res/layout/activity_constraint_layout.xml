@@ -109,7 +109,6 @@
         android:id="@+id/btn3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:text="State Flows"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="10dp"
